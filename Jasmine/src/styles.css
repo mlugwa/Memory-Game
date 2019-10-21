@@ -1,0 +1,41 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box; /*This will reset all items "what is meant by all items and why do they need resetting?"*/
+}
+
+body {
+	height: 100vh; /*asking for 100% height of what can be seen of the webpage*/
+	background: #0000; /*setting the background colour to white*/
+	display: flex; /*Part 1 of helping center the section div*/
+}
+
+.memory-game-container{
+	width: 600px;
+	height: 600px;
+	margin: auto; /*Part 2 of helping center the section div*/
+	display: flex;
+	flex-wrap: wrap; /* is automatically set to nowrap which prevents our boxes of divs from laying out accordingly*/
+	border: 2px solid yellow;
+}
+.memory-game-card { /*This will apply to all divs with the class name memory-game-card*/
+	width: calc(25% - 10px); /*This will divide the container into 2 because we have 4 cards*/
+	height: calc(33.3% - 10px); /*This will divide the container into 2 height sections fit for 4 cards*/
+	border:2px solid black;
+	position: relative; /* This makes the box positioned - will take something that gets position absolute */
+	margin: 5px; /* This opens up space between each div creating a frame structure around each with a margin of 5px*/
+}
+.memory-game-card:active { /*Active sudo class gets triggered when an element is being clicked on*/
+	transform: scale(.95);
+
+}
+.cards-front-face,
+.cards-back-face {
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	background-color: black;
+	border-radius: 5px;
+	position: absolute;  /* Will position itself reletive to the nearest ancestor */
+
+}
