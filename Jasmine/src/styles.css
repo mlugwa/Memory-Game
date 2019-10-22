@@ -17,6 +17,7 @@ body {
 	display: flex;
 	flex-wrap: wrap; /* is automatically set to nowrap which prevents our boxes of divs from laying out accordingly*/
 	border: 2px solid yellow;
+	perspective: 1000px;
 }
 .memory-game-card { /*This will apply to all divs with the class name memory-game-card*/
 	width: calc(25% - 10px); /*This will divide the container into 2 because we have 4 cards*/
@@ -24,10 +25,15 @@ body {
 	border:2px solid black;
 	position: relative; /* This makes the box positioned - will take something that gets position absolute */
 	margin: 5px; /* This opens up space between each div creating a frame structure around each with a margin of 5px*/
+	transform-style: preserve-3d;
+	transition: transform.6s;
 }
 .memory-game-card:active { /*Active sudo class gets triggered when an element is being clicked on*/
 	transform: scale(.95);
 
+}
+.memory-game-card.flip {
+	transform: rotateY(180deg);
 }
 .cards-front-face,
 .cards-back-face {
@@ -37,5 +43,9 @@ body {
 	background-color: black;
 	border-radius: 5px;
 	position: absolute;  /* Will position itself reletive to the nearest ancestor */
+	backface-visibility: hidden;
 
+}
+.cards-front-face {
+	transform: rotateY(180deg);
 }
